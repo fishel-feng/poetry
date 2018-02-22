@@ -6,4 +6,4 @@ require('babel-core/register')({
 });
 
 require('babel-polyfill');
-require('./crawler/sentence');
+// require('./database/init');

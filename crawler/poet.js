@@ -32,7 +32,7 @@ export const getPoet = async (page = 1) => {
     const desc = descString.slice(0, descString.lastIndexOf('►'));
     const poetryCount = parseInt(descString.slice(descString.lastIndexOf('►') + 2).match(/^\d+\.?\d*/g)[0]);
     data.push({
-      poetId,
+      _id: poetId,
       poetName,
       imageId,
       desc,

@@ -32,7 +32,7 @@ export const getSentence = async (page = 1) => {
     const sentencePoetryName = sentencePoetryString.slice(0, sentencePoetryString.indexOf('《'));
     const sentenceAuthorName = sentencePoetryString.slice(sentencePoetryString.indexOf('《'));
     data.push({
-      sentenceId,
+      _id: sentenceId,
       sentenceContent,
       sentencePoetryId,
       sentencePoetryName,

@@ -40,7 +40,7 @@ export const getPoetryByAuthor = async (author, page = 1) => {
     const title = $(this).find('p').first().find('a b').text();
     const content = $(this).find('.contson').text().replace(/\n+/g, '').trim();
     data.push({
-      poetryId,
+      _id: poetryId,
       title,
       content,
       authorId: author.poetId,
