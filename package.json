@@ -1,0 +1,26 @@
+{
+  "name": "poetry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "cheerio-advanced-selectors": "^1.1.1",
+    "lodash": "^4.17.5",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest-node": "^1.0.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}
