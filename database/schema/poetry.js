@@ -4,7 +4,7 @@ const PoetrySchema = new mongoose.Schema({
   _id: String,
   title: String,
   content: String,
-  authorId: {
+  author: {
     type: String,
     ref: 'Poet'
   },

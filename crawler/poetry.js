@@ -43,7 +43,7 @@ export const getPoetryByAuthor = async (author, page = 1) => {
       _id: poetryId,
       title,
       content,
-      authorId: author.poetId,
+      author: author.poetId,
       authorName: author.poetName
     });
     characters = _.union(characters, data);

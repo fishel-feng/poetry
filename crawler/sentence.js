@@ -34,7 +34,7 @@ export const getSentence = async (page = 1) => {
     data.push({
       _id: sentenceId,
       sentenceContent,
-      sentencePoetryId,
+      sentencePoetry: sentencePoetryId,
       sentencePoetryName,
       sentenceAuthorName
     });

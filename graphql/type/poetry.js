@@ -28,7 +28,7 @@ export const PoetryType = new GraphQLObjectType({
     content: {
       type: GraphQLString
     },
-    authorId: {
+    author: {
       type: PoetType,
     },
     authorName: {
@@ -42,7 +42,7 @@ export const poetries = {
   args: {},
   resolve(root, params, options) {
     return Poetry.find({}).populate({
-      path: 'authorId',
+      path: 'author',
       select: 'poetName imageId desc poetryCount'
     }).exec()
   }
@@ -60,7 +60,7 @@ export const poetry = {
     return Poetry.findOne({
       _id: params.id
     }).populate({
-      path: 'authorId',
+      path: 'author',
       select: 'poetName imageId desc poetryCount'
     }).exec()
   }

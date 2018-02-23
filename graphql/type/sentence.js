@@ -25,7 +25,7 @@ const SentenceType = new GraphQLObjectType({
     sentenceContent: {
       type: GraphQLString
     },
-    sentencePoetryId: {
+    sentencePoetry: {
       type: PoetryType,
     },
     sentencePoetryName: {
@@ -42,7 +42,7 @@ export const sentences = {
   args: {},
   resolve(root, params, options) {
     return Sentence.find({}).populate({
-      path: 'sentencePoetryId',
+      path: 'sentencePoetry',
       select: 'title content authorId authorName'
     }).exec()
   }
@@ -60,7 +60,7 @@ export const sentence = {
     return Sentence.findOne({
       _id: params.id
     }).populate({
-      path: 'sentencePoetryId',
+      path: 'sentencePoetry',
       select: 'title content authorId authorName'
     }).exec()
   }
