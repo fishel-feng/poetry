@@ -14,7 +14,7 @@ import mongoose from 'mongoose';
 
 const Poet = mongoose.model('Poet');
 
-const PoetType = new GraphQLObjectType({
+export const PoetType = new GraphQLObjectType({
   name: 'Poet',
   fields: {
     _id: {
@@ -35,10 +35,25 @@ const PoetType = new GraphQLObjectType({
   }
 });
 
-export const student = {
+export const poets = {
   type: new GraphQLList(PoetType),
   args: {},
   resolve(root, params, options) {
     return Poet.find({}).exec()
+  }
+};
+
+export const poet = {
+  type: PoetType,
+  args: {
+    id: {
+      name: 'id',
+      type: new GraphQLNonNull(GraphQLID)
+    }
+  },
+  resolve(root, params, options) {
+    return Poet.findOne({
+      _id: params.id
+    }).exec()
   }
 };

@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import KoaStatic from 'koa-static';
+import bodyParser from 'koa-bodyparser'
 import DecRouter from 'koa-dec-router';
 import {database} from './database';
 
@@ -13,6 +14,7 @@ const decRouter = DecRouter({
   after: null, // global middleware
 });
 
+app.use(bodyParser());
 app.use(KoaStatic(__dirname + '/public'));
 
 app.use(decRouter.router.routes());
