@@ -4,6 +4,7 @@ import config from '../config'
 require('./schema/poet');
 require('./schema/poetry');
 require('./schema/sentence');
+require('./schema/single');
 
 // 链接mongodb
 export const database = () => {
