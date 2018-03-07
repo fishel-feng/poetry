@@ -39,12 +39,26 @@ export const PoetryType = new GraphQLObjectType({
 
 export const poetries = {
   type: new GraphQLList(PoetryType),
-  args: {},
+  args: {
+    author: {
+      name: 'author',
+      type: GraphQLString
+    }
+  },
   resolve(root, params, options) {
-    return Poetry.find({}).populate({
-      path: 'author',
-      select: 'poetName imageId desc poetryCount'
-    }).exec()
+    if (params.author) {
+      return Poetry.find({
+        author: params.author
+      }).populate({
+        path: 'author',
+        select: 'poetName imageId desc poetryCount'
+      }).exec();
+    } else {
+      return Poetry.find({}).populate({
+        path: 'author',
+        select: 'poetName imageId desc poetryCount'
+      }).exec();
+    }
   }
 };
 
@@ -53,7 +67,7 @@ export const poetry = {
   args: {
     id: {
       name: 'id',
-      type: new GraphQLNonNull(GraphQLID)
+      type: GraphQLNonNull(GraphQLID)
     }
   },
   resolve(root, params, options) {
@@ -62,6 +76,6 @@ export const poetry = {
     }).populate({
       path: 'author',
       select: 'poetName imageId desc poetryCount'
-    }).exec()
+    }).exec();
   }
 };
